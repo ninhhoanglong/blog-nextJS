@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import styles from "./writePage.module.css";
 import { useEffect, useState } from "react";
 import "react-quill/dist/quill.bubble.css";
@@ -13,7 +14,8 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
-import ReactQuill from "react-quill";
+// import ReactQuill from "react-quill";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const WritePage = () => {
   const { status } = useSession();
