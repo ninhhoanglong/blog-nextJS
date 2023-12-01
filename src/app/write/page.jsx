@@ -12,7 +12,7 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-// import { app } from "@/utils/firebase";
+import { app } from "@/utils/firebase";
 import ReactQuill from "react-quill";
 
 const WritePage = () => {
@@ -27,7 +27,7 @@ const WritePage = () => {
   const [catSlug, setCatSlug] = useState("");
 
   useEffect(() => {
-    // const storage = getStorage(app);
+    const storage = getStorage(app);
     const upload = () => {
       const name = new Date().getTime() + file.name;
       const storageRef = ref(storage, name);
