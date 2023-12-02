@@ -20,23 +20,16 @@ const Footer = () => {
           irure voluptate quis elit ea enim labore ex sunt nulla sunt.
         </p>
         <div className={styles.icons}>
-          <Link
-            target="_blank"
-            href={"https://www.facebook.com/ninhhoanglong/"}
-          >
+          <Link href={"https://www.facebook.com/ninhhoanglong/"}>
             <Image src="/facebook.png" alt="" width={18} height={18} />
           </Link>
-          <Link
-            target="_blank"
-            href={"https://www.instagram.com/n.hoang.long2002/"}
-          >
+          <Link href={"https://www.instagram.com/n.hoang.long2002/"}>
             <Image src="/instagram.png" alt="" width={18} height={18} />
           </Link>
-          <Link target="_blank" href={"https://www.tiktok.com/@ninhhoanglong"}>
+          <Link href={"https://www.tiktok.com/@ninhhoanglong"}>
             <Image src="/tiktok.png" alt="" width={18} height={18} />
           </Link>
           <Link
-            target="_blank"
             href={"https://www.youtube.com/channel/UCuOJ7vddbwcYz_XzNHFlVAA"}
           >
             <Image src="/youtube.png" alt="" width={18} height={18} />
@@ -60,22 +53,12 @@ const Footer = () => {
         </div>
         <div className={styles.list}>
           <span className={styles.listTitle}>Social</span>
-          <Link target="_blank" href="https://www.facebook.com/ninhhoanglong/">
-            Facebook
-          </Link>
-          <Link
-            target="_blank"
-            href="https://www.instagram.com/n.hoang.long2002/"
-          >
+          <Link href="https://www.facebook.com/ninhhoanglong/">Facebook</Link>
+          <Link href="https://www.instagram.com/n.hoang.long2002/">
             Instagram
           </Link>
-          <Link target="_blank" href="https://www.tiktok.com/@ninhhoanglong">
-            Tiktok
-          </Link>
-          <Link
-            target="_blank"
-            href="https://www.youtube.com/channel/UCuOJ7vddbwcYz_XzNHFlVAA"
-          >
+          <Link href="https://www.tiktok.com/@ninhhoanglong">Tiktok</Link>
+          <Link href="https://www.youtube.com/channel/UCuOJ7vddbwcYz_XzNHFlVAA">
             Youtube
           </Link>
         </div>
