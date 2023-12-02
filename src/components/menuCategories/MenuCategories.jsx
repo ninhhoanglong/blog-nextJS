@@ -24,10 +24,10 @@ const MenuCategories = () => {
         Food
       </Link>
       <Link
-        href="/blog?cat=travel"
-        className={`${styles.categoryItem} ${styles.travel}`}
+        href="/blog?cat=billiards"
+        className={`${styles.categoryItem} ${styles.billiards}`}
       >
-        Travel
+        Billiards
       </Link>
       <Link
         href="/blog?cat=culture"
