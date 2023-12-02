@@ -6,6 +6,11 @@ import Image from "next/image";
 import useSWR from "swr";
 import { useSession } from "next-auth/react";
 
+const apiEndpoint =
+  process.env.NODE_ENV === "development"
+    ? process.env.NEXT_PUBLIC_API_ENDPOINT_DEV
+    : process.env.NEXT_PUBLIC_API_ENDPOINT_PROD;
+
 const fetcher = async (url) => {
   const res = await fetch(url);
 
@@ -23,7 +28,7 @@ const Comments = ({ postSlug }) => {
   const { status } = useSession();
 
   const { data, mutate, isLoading } = useSWR(
-    `${process.env.NEXTAUTH_URL}api/comments?postSlug=${postSlug}`,
+    `${apiEndpoint}api/comments?postSlug=${postSlug}`,
     fetcher
   );
 

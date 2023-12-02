@@ -4,9 +4,14 @@ import Pagination from "../pagination/Pagination";
 import Image from "next/image";
 import Card from "../card/Card";
 
+const apiEndpoint =
+  process.env.NODE_ENV === "development"
+    ? process.env.NEXT_PUBLIC_API_ENDPOINT_DEV
+    : process.env.NEXT_PUBLIC_API_ENDPOINT_PROD;
+
 const getData = async (page, cat) => {
   const res = await fetch(
-    `${process.env.NEXTAUTH_URL}api/posts?page=${page}&cat=${cat || ""}`,
+    `${apiEndpoint}api/posts?page=${page}&cat=${cat || ""}`,
     {
       cache: "no-store",
     }
