@@ -1,33 +1,58 @@
 import React from "react";
 import styles from "./featured.module.css";
 import Image from "next/image";
+import { HiOutlineEye } from "react-icons/hi2";
+import Link from "next/link";
 
-const Featured = () => {
+const apiEndpoint =
+  process.env.NODE_ENV === "development"
+    ? process.env.NEXT_PUBLIC_API_ENDPOINT_DEV
+    : process.env.NEXT_PUBLIC_API_ENDPOINT_PROD;
+
+const getData = async () => {
+  const res = await fetch(`${apiEndpoint}api/get-featured-post`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed");
+  }
+
+  return res.json();
+};
+
+const Featured = async () => {
+  const data = await getData();
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>
-        <b>Culpa ut proident aliquip</b>. Exercitation et occaecat Lorem irure
-        ullamco irure nisi exercitation cupidatat.
-      </h1>
+      <h1 className={styles.title}>{data.title}</h1>
       <div className={styles.post}>
-        <div className={styles.imgContainer}>
-          <Image src="/p1.jpeg" fill alt="" className={styles.image} />
-        </div>
+        {data?.img && (
+          <div className={styles.imgContainer}>
+            <Image src={data.img} fill alt="" className={styles.image} />
+          </div>
+        )}
         <div className={styles.textContainer}>
-          <h1 className={styles.postTitle}>
-            Esse id excepteur deserunt id minim ullamco in velit.
-          </h1>
-          <p className={styles.postDesc}>
-            Minim sint tempor nulla culpa incididunt incididunt amet sint
-            cillum. Laboris dolor elit adipisicing dolore nostrud ex consequat
-            ullamco nisi dolore anim ipsum. Exercitation adipisicing anim sunt
-            labore esse fugiat dolor dolore et ullamco. Sit aliquip occaecat
-            veniam officia do ad dolore reprehenderit nulla cillum sint. Laboris
-            cillum consequat consequat commodo sint officia ipsum fugiat dolore.
-            Non irure culpa eiusmod non in elit voluptate pariatur excepteur
-            aliqua ex in.
-          </p>
-          <button className={styles.button}>Read More</button>
+          <div className={styles.postDetail}>
+            <div className={styles.postView}>
+              <HiOutlineEye />
+              {data?.views}
+            </div>
+            <div>
+              <span className={styles.date}>
+                {data.createdAt.substring(0, 10)} -{" "}
+              </span>
+              <span className={styles.category}>{data.catSlug}</span>
+            </div>
+          </div>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: data?.desc.substring(0, 1500) + "...",
+            }}
+          />
+          <Link className={styles.button} href={`/posts/${data.slug}`}>
+            Read More
+          </Link>
         </div>
       </div>
     </div>

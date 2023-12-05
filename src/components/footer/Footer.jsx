@@ -8,17 +8,10 @@ const Footer = () => {
     <div className={styles.container}>
       <div className={styles.info}>
         <div className={styles.logo}>
-          <Image src="/logo.png" alt="LongNH Blog" width={50} height={50} />
+          <Image src="/travel.png" alt="LongNH Blog" width={50} height={50} />
           <h1 className="styles.logoText">LongNHBlog</h1>
         </div>
-        <p className={styles.desc}>
-          Dolor proident eu deserunt ea reprehenderit irure ipsum id dolor
-          labore adipisicing. Eu labore do commodo irure pariatur anim cillum ut
-          in consequat officia. Culpa dolore mollit Lorem enim enim excepteur.
-          Ea voluptate laboris mollit sunt ad consectetur irure amet ut eiusmod
-          laboris amet ullamco cillum. Ad ullamco nisi enim elit. Excepteur nisi
-          irure voluptate quis elit ea enim labore ex sunt nulla sunt.
-        </p>
+        <p className={styles.desc}>Trang blog cá nhân dành cho giới trẻ =)))</p>
         <div className={styles.icons}>
           <Link
             target="_blank"

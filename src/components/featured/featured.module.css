@@ -31,6 +31,20 @@
   gap: 20px;
 }
 
+.postView {
+  display: flex;
+  color: gray;
+  text-align: center;
+  justify-content: center;
+}
+
+.postDetail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 30px;
+}
+
 .postTitle {
   font-size: 40px;
 }
@@ -42,10 +56,18 @@
 }
 
 .button {
-  padding: 16px 20px;
-  border: none;
-  border-radius: 5px;
+  border-bottom: 1px solid crimson;
   width: max-content;
+  padding: 2px 0px;
+}
+
+.date {
+  color: gray;
+}
+
+.category {
+  color: crimson;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 1280px) {
